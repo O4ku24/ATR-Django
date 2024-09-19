@@ -1,0 +1,30 @@
+{% extends "app/base.html" %}
+{%block body%}
+    <div style="text-align: center;"><h1>Заявки</h1></div>
+ 
+
+        
+        {% for key, value in ordering.items %}
+    <div class="card-group">
+        <div class="card border-danger mb-3" style="width: 18rem;">    
+            <div class="card-body">
+                <p class="card-text">Статус = {{ value.status }}</p>
+                <p class="card-text">Заголовок = {{ value.title }}</p>
+                <p class="card-text">Исполнитель = {{ value.executioner }}</p>
+                <p class="card-text">Дата завершения работ = {{ value.endTime }}</p>
+                <form action="/ordering/{{ key }}" method="POST">
+                    {% csrf_token %}
+                    <div>
+                        <button type="submit" class="btn btn-default btn-info" value={{key}}>Done</button>
+                    </div>
+                </form>
+            </div>
+        </div>        
+            
+            
+        </div>
+            
+        
+        {% endfor %}
+    </div>
+{%endblock%}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+
+    <nav class="navbar" style="background-color: #3f3f3f;">
+        <div class="container-fluid">
+            <a class="btn btn-info" href="/">
+                <img src="/static/img/logo.jpg" alt="Logo" width="65" height="35">
+                Калаш-Монтаж
+            </a><a href="/tasks/" class="btn btn-info">Задачи</a>
+            <a href="/tasks/add/" class="btn btn-info">Создать Задачу</a>
+            <a href="/cash/" class="btn btn-info">Просмотреть баланс</a>
+        </div>
+        
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

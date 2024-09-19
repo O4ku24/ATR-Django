@@ -1,0 +1,43 @@
+{% extends "app/base.html" %}
+{%block body%}
+    
+    <div>
+        <h2 align="center">Добавить задачу</h2>
+
+        <form action="/tasks/add/" method="post" class="mb-3">
+
+            {% csrf_token %}
+
+            <div>Задание
+                <input type="text" name="title">
+            </div>
+
+            <div>Исполнитель
+                <select name="executioner">
+                    {% for name in names %}
+                    <option>{{ name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div>Приемщик
+                <select name="direct">
+                    {% for name in names %}
+                    <option>{{ name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div>Описание
+                <input type="text" name="descreption">
+            </div>
+
+            <div>Дата завершение выполнения задачи
+                <input type="date" name="endTime">
+            </div>
+
+            <button type="submit" class="btn btn-info">Создать задачу</button>
+        </form>
+    </div>
+
+{%endblock%}
